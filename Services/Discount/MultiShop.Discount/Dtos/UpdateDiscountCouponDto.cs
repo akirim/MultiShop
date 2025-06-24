@@ -1,11 +1,11 @@
 ﻿namespace MultiShop.Discount.Dtos
 {
-    public class UpdateCouponDto
+    public class UpdateDiscountCouponDto
     {
         public int CouponId { get; set; }
         public string Code { get; set; }
         public int Rate { get; set; }
-        public bool Isactive { get; set; }
-        public DateTime VaildDate { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime ValidDate { get; set; }
     }
 }
