@@ -13,12 +13,12 @@ namespace MultiShop.Discount.Services
         }
         public Task CreateCouponAsync(CreatCouponDto createCouponDto)
         {
-            string query = "INSERT INTO Coupons (Code, Rate, IsActive, VaildDate) VALUES (@Code, @Rate, @IsActive, @VaildDate)";
+            string query = "INSERT INTO Coupons (Code, Rate, IsActive, VaildDate) VALUES (@code, @rate, @isActive, @vaildDate)";
             var paramters = new DynamicParameters();
-            paramters.Add("Code", createCouponDto.Code);
-            paramters.Add("Rate", createCouponDto.Rate);
-            paramters.Add("IsActive", createCouponDto.Isactive);
-            paramters.Add("VaildDate", createCouponDto.VaildDate);
+            paramters.Add("code", createCouponDto.Code);
+            paramters.Add("rate", createCouponDto.Rate);
+            paramters.Add("isActive", createCouponDto.Isactive);
+            paramters.Add("vaildDate", createCouponDto.VaildDate);
             using (var connection = _context.CreateConnection())
             {
                 return connection.ExecuteAsync(query, paramters);
@@ -27,7 +27,7 @@ namespace MultiShop.Discount.Services
 
         public async Task DeleteCouponAsync(int id)
         {
-            string query = "DELETE FROM Coupons WHERE CouponId = @CouponId";
+            string query = "DELETE FROM Coupons WHERE CouponId = @couponId";
             var parameters = new DynamicParameters();
             parameters.Add("CouponId", id);
             using (var connection = _context.CreateConnection())
@@ -60,12 +60,12 @@ namespace MultiShop.Discount.Services
 
         public async Task UpdateCouponAsync(UpdateCouponDto updateCouponDto)
         {
-            string query = "UPDATE Coupons SET Code = @Code, Rate = @Rate, IsActive = @IsActive, VaildDate = @VaildDate WHERE CouponId = @CouponId";
+            string query = "UPDATE Coupons SET Code = @code, Rate = @rate, IsActive = @isActive, VaildDate = @vaildDate WHERE CouponId = @couponId";
             var paramters = new DynamicParameters();
-            paramters.Add("Code", updateCouponDto.Code);
-            paramters.Add("Rate", updateCouponDto.Rate);
-            paramters.Add("IsActive", updateCouponDto.Isactive);
-            paramters.Add("VaildDate", updateCouponDto.VaildDate);
+            paramters.Add("code", updateCouponDto.Code);
+            paramters.Add("ate", updateCouponDto.Rate);
+            paramters.Add("isActive", updateCouponDto.Isactive);
+            paramters.Add("vaildDate", updateCouponDto.VaildDate);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, paramters);
