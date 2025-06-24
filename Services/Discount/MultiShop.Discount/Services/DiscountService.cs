@@ -63,7 +63,7 @@ namespace MultiShop.Discount.Services
             string query = "UPDATE Coupons SET Code = @code, Rate = @rate, IsActive = @isActive, VaildDate = @vaildDate WHERE CouponId = @couponId";
             var paramters = new DynamicParameters();
             paramters.Add("code", updateCouponDto.Code);
-            paramters.Add("ate", updateCouponDto.Rate);
+            paramters.Add("rate", updateCouponDto.Rate);
             paramters.Add("isActive", updateCouponDto.Isactive);
             paramters.Add("vaildDate", updateCouponDto.VaildDate);
             using (var connection = _context.CreateConnection())
